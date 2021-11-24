@@ -36,13 +36,13 @@ function newQuote() {
 }
 
 async function getQuotesFromApi() {
-  loading();
+  showLoadingSpinner();
   const apiUrl = 'https://type.fit/api/quotes';
   try {
     const response = await fetch(apiUrl);
     apiQuotes = await response.json();
     newQuote();
-    loaded();
+    hideLoadingSpinner();
   } catch (e) {
     console.log(e)
   }
