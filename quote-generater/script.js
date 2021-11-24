@@ -9,7 +9,13 @@ let apiQuotes = [];
 // Show new quote
 function newQuote() {
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length)];
-  authorText.textContent = quote.author;
+  authorText.textContent = quote.author ? quote.author : 'Unknown'
+
+  if (quote.text.length > 120) {
+    quoteText.classList.add('long-quote');
+  } else {
+    quoteText.classList.remove ('long-quote');
+  }
   quoteText.textContent = quote.text;
 }
 
